@@ -130,7 +130,7 @@ class Connection {
     return _connected.future;
   }
 
-  Future<ResultMessage> _authenticate(AuthenticateMessage authMessage) {
+  Future<Message> _authenticate(AuthenticateMessage authMessage) {
     // Check if an authenticator is specified
     if (_poolConfig.authenticator == null) {
       throw AuthenticationException(
@@ -141,7 +141,7 @@ class Connection {
     }
 
     // Run through challenge response till we get back a ready message from the server
-    Completer completer = Completer();
+    Completer completer = Completer<Message>();
 
     void answerChallenge(Message result) {
       if (result is AuthenticateMessage || result is AuthChallengeMessage) {
