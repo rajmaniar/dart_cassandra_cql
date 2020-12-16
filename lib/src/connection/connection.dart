@@ -141,7 +141,7 @@ class Connection {
     }
 
     // Run through challenge response till we get back a ready message from the server
-    Completer completer = Completer<Message>();
+    final completer = Completer<Message>();
 
     void answerChallenge(Message result) {
       if (result is AuthenticateMessage || result is AuthChallengeMessage) {

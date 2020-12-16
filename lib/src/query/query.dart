@@ -33,6 +33,7 @@ class Query extends QueryInterface {
       Consistency this.serialConsistency,
       bool this.prepared: false}) {
     this.bindings = bindings;
+    this.positionalQuery;
   }
 
   /**
